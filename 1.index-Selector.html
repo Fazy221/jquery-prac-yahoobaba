@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CDN link for loading minified jquery. Could also download and add local link like simple js -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <p id="para">Hello</p>
+    <p class="para">Hello</p>
+    <h1 >Hello</h1>
+    <ul>
+        <li>orange</li>
+        <li>banana</li>
+        <li>peach</li>
+        <li>choclate</li>
+        <li>apple</li>
+    </ul>
+    <div class="card">
+        <h2>this is good</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quas minus amet corrupti omnis enim quisquam deserunt adipisci, provident magnam molestiae quae nostrum fuga magni perferendis, aut, officiis repudiandae nesciunt.</p>
+    </div>
+    <!-- Will put inside script tag since it's js basically -->
+    <script>
+        // $ mean initiate and first arg 'document' inside () is selector then we put ready method on it which mean when doc load then use anonymous func
+        $(document).ready(function(){
+            $('#para').css('color', 'red'); // will again use $ and select id with # then use css method to manipulate
+            $('.para').css('color', 'pink'); // same with class using .
+            $('h1').css('color', 'blue'); // same with regular tags 
+            $('ul li').css('border', '1px solid black'); // multiple tags
+            $('ul li:eq(1)').css('border', '3px dashed green'); // pick direct child through index. eq mean equal
+            $('ul li:lt(1)').css('border', '3px solid red'); // lower than index which will be 0 in this case as < 1
+            $('ul li:gt(3)').css('border', '3px solid blue'); // greater than index so everything > 3
+            // $('ul li:first').css('border', '3px solid blue'); // first 
+            // $('ul li:last').css('border', '3px solid blue'); // last
+
+            // Getting inner html of card div 
+            let a = $('.card').html();
+            console.log(a);
+            // Output
+            /*
+             <h2>this is good</h2>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quas minus amet corrupti omnis enim quisquam deserunt adipisci, provident magnam molestiae quae nostrum fuga magni perferendis, aut, officiis repudiandae nesciunt.</p>
+            */
+           
+        })
+    </script>
+</body>
+</html>
