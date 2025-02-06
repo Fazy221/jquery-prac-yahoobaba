@@ -45,6 +45,27 @@
             <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Beatae quas minus amet corrupti omnis enim quisquam deserunt adipisci, provident magnam molestiae quae nostrum fuga magni perferendis, aut, officiis repudiandae nesciunt.</p>
             */
            
+            // Click changes
+            $('.card').click(function() {
+                $(this).css('background-color', 'red');
+            })
+            $('.card').dblclick(function() {
+                $(this).css('background-color', 'blue');
+            })
+            $('.card').mouseenter(function() {
+                $(this).css('background-color', 'green');
+            })
+            $('.card').mouseleave(function() {
+                $(this).css('background-color', 'pink');
+            })
+
+            // Key changes
+            $('body').keypress(function() {
+                $(this).css('background-color', 'brown');
+            })
+            $('body').keydown(function() {
+                $(this).css('background-color', 'lime');
+            })
         })
     </script>
 </body>

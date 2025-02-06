@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- CDN link for loading minified jquery. Could also download and add local link like simple js -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <form style="display: flex; flex-direction: column;max-width: 200px;gap: 8px;">
+        <input class="person_name" placeholder="Enter Name" type="text"> 
+        <input class="person_age" placeholder="Enter Age" type="number"> 
+        <select name="person_country" id="person_country">
+            <option>Select</option>
+            <option value="Pakistan">Pakistan</option>
+            <option value="India">India</option>
+            <option value="Bangladesh">Bangladesh</option>
+            <option value="Sri Lanka">Sri Lanka</option>
+        </select>
+        <div class="selected_val"></div>
+        <button class="submit_btn" type="submit">Submit</button>
+    </form>
+    <script>
+        $(document).ready(function(){
+            // Will change inp background color when click it. 
+            $('.person_name').focus(function() { 
+                $(this).css('background-color', 'red'); // Instead of selecting el multiple times, can just use this 
+            })
+            // On click outside, can make change too
+            $('.person_name').blur(function() { 
+                $(this).css('background-color', 'white'); 
+            })
+            // On selecting option from dropdown, insert selected option as text to empty .selected_val div tag
+            $('#person_country').change(function() {
+                let val = $('#person_country').val();
+                $('.selected_val').text(val);
+            })
+            // In input field when enter text then dbl click to select text, can make functionality on it
+            $('.person_age').select(function() {
+                $(this).css('background-color', 'yellow');
+            })
+        })
+    </script>
+</body>
+</html>
