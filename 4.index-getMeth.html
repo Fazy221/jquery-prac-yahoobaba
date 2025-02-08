@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+    <style>
+        *{ 
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+      .box {
+        margin: 20px;
+        background-color: lightcoral;
+        width: 500px;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        gap: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+        <h1>Heading</h1>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, similique. <span>Lorem ipsum dolor sit amet.</span></p>
+        <input type="text">
+    </div>
+    <script>
+        $(document).ready(function() {
+            let h1 = $('h1').text(); // text content
+            console.log(h1);
+            let divHtml = $('div').html() // inner html
+            console.log(divHtml);
+            $('input').change(function() { // form input/radio/textarea value
+                let inpVal = $(this).val();
+                console.log(inpVal);
+            })
+            let boxAttr = $('.box').attr('class'); // attribute's value; class's val in this case
+            console.log(boxAttr);
+        })
+    </script>
+  </body>
+</html>
