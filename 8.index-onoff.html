@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+    <style>
+        *{ 
+            box-sizing: border-box;
+            margin: 0px;
+            padding: 0px;
+        }
+        body {
+            margin: 20px;
+        }
+      .box {
+        width: 500px;
+        border: 1px solid black;
+        display: flex;
+        flex-direction: column;
+        padding: 16px;
+        gap: 8px;
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+        <h2>Heading</h2>
+        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aliquam, similique. <span>Lorem ipsum dolor sit amet.</span></p>
+    </div>
+    <div>
+        <button>Add Style</button>
+    </div>
+    <script>
+        $(document).ready(function() {
+            // Formal method of adding multiple events to a box
+            /*
+            $('.box').mouseenter(function() {
+                $(this).css('background', 'red');
+            });
+            $('.box').mouseleave(function() {
+                $(this).css('background', 'blue');
+            });
+            */
+
+            // Using on method to shorten if need to apply same functionality
+            /*
+            $('.box').on('mouseenter mouseleave', function() {
+                $(this).css('background', 'red');
+            })
+            */
+
+            // Using on method to apply different func by wrapping in {}
+            $('.box').on({
+                'mouseenter': function(){
+                    $(this).css('background', 'red');
+                },
+                'mouseleave': function() {
+                    $(this).css('background', 'blue');
+                },
+                'click': function() {
+                    $(this).css('background', 'pink');
+                }
+            });
+
+            // Using off method to remove event
+            $('button').click(function() {
+                $('.box').off('mouseenter mouseleave');
+            })
+        });
+        
+    </script>
+  </body>
+</html>
