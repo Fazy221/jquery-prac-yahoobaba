@@ -22,10 +22,20 @@
             display: flex;
             flex-direction: column;
             background-color: darkgreen;
-            border: 4px solid #000;
-            width: 300px;
+            border: 1px solid #000;
+            width: 280px;
             padding: 12px 8px;
             color: #fff;
+        }
+        .btn-group {
+            display: flex;
+            width: 280px;
+            button {
+                flex: 1;
+            }
+        }
+        .para-style {
+            color: purple;
         }
     </style>
 </head>
@@ -34,19 +44,15 @@
         <h2>Test</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fugiat, facilis.</p>
     </div>
-    <button id="width_btn">Width Button</button>
-    <button id="height_btn">Height Button</button>
+    <button id="wrapbtn">Wrap Buttons</button>
+    <button id="wrapinnerbtn">Wrap Inner Button</button>
     <script>
         $(document).ready(function() {
-            $('#width_btn').click(function() {
-                console.log(`Container's width is ${$('.container').width()}`); // from where content starts after leaving off padding/borders
-                console.log(`Container's inner width is ${$('.container').innerWidth()} excluding right/left padding`);
-                console.log(`Container's outer width is ${$('.container').outerWidth()}`);
+            $('#wrapbtn').click(function() {
+                $('button').wrapAll('<div class="btn-group"></div>'); // Wrap multiple el in one group
             });
-            $('#height_btn').click(function() {
-                console.log(`Container's height is ${$('.container').height()}`);
-                console.log(`Container's inner height is ${$('.container').innerHeight()} excluding top/bottom padding`);
-                console.log(`Container's outer height is ${$('.container').outerHeight()}`);
+            $('#wrapinnerbtn').click(function() {
+                $('.container p').wrapInner('<span class="para-style"></span>'); // wrap child of selected el
             })
         })
     </script>

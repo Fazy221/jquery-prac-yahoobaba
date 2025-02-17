@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.min.js"
+      integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+      crossorigin="anonymous"
+    ></script>
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+        <p>helo</p>
+    </div>
+    <button>Replace</button>
+    <script>
+        $(document).ready(function() {
+            $('button').click(function() {
+                // $('.container').replaceWith('<div><h1>Hi guys</h1></div>');
+                $('<div><h1>Hi guys</h1></div>').replaceAll('.container'); // opposite of above
+            })
+        })
+    </script>
+</body>
+</html>
